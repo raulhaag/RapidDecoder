@@ -3,7 +3,7 @@ package rapid.decoder;
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Build;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.View;
 
 import java.lang.ref.WeakReference;
@@ -90,7 +90,7 @@ class BackgroundTaskManager {
         return o instanceof View ||
                 o instanceof Activity ||
                 Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB && o instanceof Fragment ||
-                hasSupportLibraryV4() && o instanceof android.support.v4.app.Fragment;
+                hasSupportLibraryV4() && o instanceof androidx.fragment.app.Fragment;
     }
 
     public static boolean hasAnyTasks() {

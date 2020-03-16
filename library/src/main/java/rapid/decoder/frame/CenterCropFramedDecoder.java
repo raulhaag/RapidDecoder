@@ -1,7 +1,7 @@
 package rapid.decoder.frame;
 
 import android.graphics.Rect;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import rapid.decoder.BitmapDecoder;
 import rapid.decoder.BitmapMeta;
