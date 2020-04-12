@@ -1,32 +1,52 @@
 package rapid.decoder;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
-import android.test.AndroidTestCase;
 
-import rapid.decoder.test.R;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.platform.app.InstrumentationRegistry;
+import androidx.test.rule.ActivityTestRule;
 
-public class BasicUnitTest extends AndroidTestCase {
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+import rapid.decoder.test.MainActivity;
+
+import static junit.framework.TestCase.assertNotNull;
+import static org.junit.Assert.assertEquals;
+
+@RunWith(AndroidJUnit4.class)
+public class BasicUnitTest {
+
 	private Resources res;
+	@Rule
+	public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<>(MainActivity.class);
+	private MainActivity ma;
 
 	@SuppressWarnings("unused")
-	private static void assertEquals(Rect rect, int left, int top, int right, int bottom) {
+	private static void assertREquals(Rect rect, int left, int top, int right, int bottom) {
 		assertEquals(left, rect.left);
 		assertEquals(top, rect.top);
 		assertEquals(right, rect.right);
 		assertEquals(bottom, rect.bottom);
 	}
-	
-	@Override
-	protected void setUp() throws Exception {
-		res = getContext().getResources();
+
+	@Before
+	public void setUp() throws Exception {
+		Context context = InstrumentationRegistry.getInstrumentation().getTargetContext();
+		res = context.getResources();
+		ma = mActivityRule.getActivity();
 	}
-	
+
+	@Test
 	public void testDecoding() {
-		decodingTest(R.drawable.android);
-		decodingTest(R.drawable.pond);
+		decodingTest(ma.a);
+		decodingTest(ma.p);
 	}
 	
 	private void decodingTest(int id) {

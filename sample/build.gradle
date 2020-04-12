@@ -19,5 +19,7 @@ dependencies {
     implementation project(':jpeg-decoder')
     implementation project(':png-decoder')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    api 'androidx.annotation:annotation:1.1.0'
+
 }

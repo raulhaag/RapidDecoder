@@ -2,13 +2,6 @@ package rapid.decoder.sample;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.legacy.app.ActionBarDrawerToggle;
-import androidx.fragment.app.Fragment;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.ActionBar;
-
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.MenuItem;
@@ -17,6 +10,12 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 
 import rapid.decoder.BitmapDecoder;
 
@@ -36,13 +35,13 @@ public class MainActivity extends AppCompatActivity {
         BitmapDecoder.initDiskCache(this);
         BitmapDecoder.initMemoryCache(this);
 
-        mDrawer = (DrawerLayout) findViewById(R.id.drawer);
-        ListView listDrawerMenu = (ListView) findViewById(R.id.list_drawer_menu);
+        mDrawer = findViewById(R.id.drawer);
+        ListView listDrawerMenu = findViewById(R.id.list_drawer_menu);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeButtonEnabled(true);
-        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawer, R.drawable.ic_navigation_drawer,
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawer,
                 R.string.drawer_open, R.string.drawer_close) {
 
             @Override
